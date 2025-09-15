@@ -1,80 +1,62 @@
 { config, pkgs, lib, ... }:
 
 let
-  # VS Code dengan ekstensi pre-download (unofficial)
+  # VS Code + ekstensi
   vscode-with-ext = pkgs.vscode-with-extensions.override {
     vscodeExtensions = with pkgs.vscode-extensions; [
-      ms-vscode.vscode-typescript-next        # JS/TS
-      rust-lang.rust-analyzer
-      golang.go
-      dart-code.flutter
+      ms-vscode.vscode-typescript-next   # JS/TS
+      rust-lang.rust-analyzer            # Rust
+      golang.go                          # Go
+      dart-code.flutter                  # Flutter
       dart-code.dart-code
-      pkgs.vscode-extensions.mkhl.direnv      # opsional
-    ] ++ lib.optional pkgs.stdenv.isLinux pkgs.vscode-extensions.ms-vscode.vscode-json;
+    ];
   };
+
+  # Android SDK versi 34 (bisa ganti sesuka mu)
+  androidSdk = pkgs.androidenv.composeAndroidPackages {
+    platformVersions = [ "34" ];
+    abiVersions      = [ "arm64-v8a" "x86_64" ];
+    buildToolsVersions = [ "34.0.0" ];
+    includeNDK = false;   # true kalau butuh native
+  };
+
 in
 {
   environment.systemPackages = with pkgs; [
-    # === Core editor ==================================================
+    # === Core editor ================================================
     vscode-with-ext
 
-    # === Rust toolchain ===============================================
-    cargo
-    rustc
-    rustfmt
-    clippy
-    rust-analyzer          # LSP
-    pkg-config
-    openssl
-    gcc                    # linker
+    # === Rust ========================================================
+    cargo rustc rustfmt clippy rust-analyzer pkg-config openssl
 
-    # === Go toolchain =================================================
-    go
-    gopls                  # LSP
-    gotools                # goimports, godoc, dll
-    delve                  # debugger
+    # === Go ==========================================================
+    go gopls gotools delve
 
-    # === JS/TS + Node =================================================
-    nodejs_20              # LTS
-    nodePackages.pnpm
-    nodePackages.npm
-    nodePackages.yarn
-    nodePackages.typescript
-    nodePackages.ts-node
-    nodePackages.prettier
-    nodePackages.eslint
+    # === JS/TS =======================================================
+    nodejs_20 nodePackages.pnpm nodePackages.npm nodePackages.yarn
+    nodePackages.typescript nodePackages.ts-node
+    nodePackages.prettier nodePackages.eslint
 
-    # === Flutter ======================================================
-    flutter                # channel stable
-    android-studio         # SDK Manager GUI (opsional)
-    cmdline-tools          # tanpa GUI
+    # === Flutter + Android (low-level) ===============================
+    flutter
+    androidSdk.platform-tools
+    androidSdk.build-tools-34-0-0
+    androidSdk.platforms.android-34
+    jdk17          # dibutuhkan Flutter & Android
   ];
 
-  # === Flutter config (tanpa Android Studio) ==========================
-  programs.flutter = {
-    enable = true;
-    # channel bisa "stable", "beta", "dev"
-    channel = "stable";
-  };
-
-  # === Android SDK ====================================================
-  programs.android-sdk = {
-    enable = true;
-    platformTools = true;
-    cmdlineTools = true;
-    buildTools = [ "34.0.0" ];   # sesuaikan
-    platforms = [ "34" ];        # API 34
-    abiVersions = [ "arm64-v8a" "x86_64" ];
-  };
-
-  # Supaya Flutter menemukan Android SDK -------------------------------
+  # === Flutter paths ================================================
   environment.variables = {
-    ANDROID_SDK_ROOT = "${config.programs.android-sdk.sdkRoot}";
-    ANDROID_HOME = "${config.programs.android-sdk.sdkRoot}";
-    FLUTTER_ROOT = "${pkgs.flutter}";
+    ANDROID_SDK_ROOT = "${androidSdk.sdkRoot}";
+    ANDROID_HOME     = "${androidSdk.sdkRoot}";
+    FLUTTER_ROOT     = "${pkgs.flutter}";
   };
 
-  # === direnv (opsional, project-level env) ===========================
+  # === ADB untuk device / emulator ==================================
+  programs.adb.enable = true;
+  users.users.liyan.extraGroups = [ "adbusers" "kvm" ];
+
+  # === direnv (opsional) ============================================
   programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;   # integrasi flakes
+  programs.direnv.nix-direnv.enable = true;
 }
