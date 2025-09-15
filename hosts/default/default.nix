@@ -23,6 +23,11 @@
     ../../modules/desktop/apps.nix
     ../../modules/desktop/gui-apps.nix
     ../../modules/desktop/hypr.nix
+
+    # dev
+    ../../modules/dev/code.nix
+    ../../modules/dev/android.nix
+
   ];
   my.gui-apps.enable = true; 
   nixpkgs.config.allowUnsupportedSystem = true; 
