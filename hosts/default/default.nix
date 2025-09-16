@@ -24,7 +24,7 @@
     ../../modules/desktop/apps.nix
     ../../modules/desktop/gui-apps.nix
     ../../modules/desktop/hypr.nix
-#    ../../modules/desktop/steam.nix
+    ../../modules/desktop/steam.nix
 
     # dev
     ../../modules/dev/code.nix

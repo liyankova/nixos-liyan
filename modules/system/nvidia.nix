@@ -11,12 +11,12 @@
   };
 
   # Enable OpenGL (legacy, for compatibility)
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [ vaapiVdpau ];
-  };
+  # hardware.opengl = {
+  #   enable = true;
+  #   driSupport = true;
+  #   driSupport32Bit = true;
+  #   extraPackages = with pkgs; [ vaapiVdpau ];
+  # };
 
   # Use NVIDIA driver
   services.xserver.videoDrivers = [ "nvidia" ];
