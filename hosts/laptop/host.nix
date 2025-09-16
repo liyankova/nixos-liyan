@@ -6,17 +6,17 @@
     ./hardware-configuration.nix
     # system
     ../../system/boot.nix
-    ../../system/core.nix
+    ../../nix/modules/system/system-core.nix
     ../../system/audio.nix
     ../../system/nvidia.nix
-    ../../system/android.nix
+    ../../nix/modules/system/android-system.nix
     
 
     # desktop
     ../../desktop/hyprland.nix   # ← Baru
     ../../desktop/wayland.nix    # ← Baru
     ../../desktop/steam.nix      # ← Baru
-    # ../../system/shell.nix
+    # ../../nix/modules/system/shell-system.nix
 
     # home-manager.nixosModules.home-manager
     # boot

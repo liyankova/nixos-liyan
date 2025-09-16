@@ -1,4 +1,4 @@
-# home/default.nix
+# home/home.nix
 { config, pkgs, lib, ... }:
 
 {

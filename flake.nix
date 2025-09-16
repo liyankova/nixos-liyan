@@ -43,7 +43,7 @@
         homeDirectory = "/home/liyan";
 	stateVersion = "25.05";
 	modules = [
-	  ./home/default.nix
+	  ./home/home.nix
 	];
       };
 #  modules = [
