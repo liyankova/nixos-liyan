@@ -29,7 +29,7 @@
     ../../nix/modules/desktop/hyprland.nix
     ../../nix/modules/desktop/wayland.nix
     ../../nix/modules/desktop/steam.nix
-    ../../nix/modules/desktop/xdg-portals.nix
+    # ../../nix/modules/desktop/xdg-portals.nix
 
   ];
   # my.gui-apps.enable = true; 
