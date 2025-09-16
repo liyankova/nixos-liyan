@@ -3,21 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-   home-manager = {
-     url = "github:nix-community/home-manager";
-     inputs.nixpkgs.follows = "nixpkgs";
-   };
-   android-nixpkgs = {
-     url = "github:tadfisher/android-nixpkgs/stable";
-     inputs.nixpkgs.follows = "nixpkgs";
-  };
- #   dotfiles.url = "github:liyankova/wallust-dotfiles";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    android-nixpkgs = {
+      url = "github:tadfisher/android-nixpkgs/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, android-nixpkgs, ... }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system}; 
+      pkgs = import nixpkgs { inherit system; };
+      # pkgs = nixpkgs.legacyPackages.${system}; 
 #      dotfiles = /home/liyan/.dotfiles;
     in
     {
@@ -25,6 +25,7 @@
         inherit system;
 	specialArgs = {                 
            inherit android-nixpkgs;
+	   inherit self;
         };
         modules = [
 	  ./hosts/laptop/host.nix
