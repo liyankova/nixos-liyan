@@ -16,7 +16,7 @@
     # System integration
     xdg-user-dirs
     gsettings-qt
-    qtwayland
+    # qtwayland
   ];
 
   # ===== WAYLAND SPECIFIC SERVICES =====

@@ -4,8 +4,8 @@
 {
   # ===== HYPRLAND USER SERVICES =====
   systemd.user.services.hypr-shebang = {
-    wantedBy = [ "default.target" ];
-    after = [ "graphical-session.target" ];
+    # wantedBy = [ "graphical-session.target" ];  # Fix target
+    # after = [ "graphical-session.target" ];     # Fix target
     serviceConfig = {
       Type = "oneshot";
       ExecStart = pkgs.writeScript "fix-shebang" ''
