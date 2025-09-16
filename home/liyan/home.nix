@@ -3,12 +3,12 @@
 
 {
   imports = [
-    ./shell.nix
-    ./dev.nix
-    ./android.nix
-    ./apps.nix
-    ./wayland-tools.nix
-    ./systemd-services.nix
+    ../../nix/home-modules/shell-home.nix
+    ../../nix/home-modules/dev.nix
+    ../../nix/home-modules/android-home.nix
+    ../../nix/home-modules/apps.nix
+    ../../nix/home-modules/wayland-tools.nix
+    ../../nix/home-modules/systemd-services.nix
   ];
 
   # Basic home setup

@@ -2,47 +2,34 @@
 
 {
   imports = [
-    ./hardware.nix
+ #   ./hardware.nix
     ./hardware-configuration.nix
+    # # system
+    # ../../system/boot.nix
+    # ../../nix/modules/system/system-core.nix
+    # ../../system/audio.nix
+    # ../../system/nvidia.nix
+    # ../../nix/modules/system/android-system.nix
+    #
+    #
+    # # desktop
+    # ../../desktop/hyprland.nix   # ← Baru
+    # ../../desktop/wayland.nix    # ← Baru
+    # ../../desktop/steam.nix      # ← Baru
+    # # ../../nix/modules/system/shell-system.nix
+
     # system
-    ../../system/boot.nix
+    ../../nix/modules/system/boot.nix
     ../../nix/modules/system/system-core.nix
-    ../../system/audio.nix
-    ../../system/nvidia.nix
+    ../../nix/modules/system/audio.nix
+    ../../nix/modules/system/nvidia.nix
     ../../nix/modules/system/android-system.nix
-    
 
     # desktop
-    ../../desktop/hyprland.nix   # ← Baru
-    ../../desktop/wayland.nix    # ← Baru
-    ../../desktop/steam.nix      # ← Baru
-    # ../../nix/modules/system/shell-system.nix
-
-    # home-manager.nixosModules.home-manager
-    # boot
-    # ../../modules/boot/grub.nix
-    # ../../modules/boot/sddm.nix
-    # ../../modules/boot/opt.nix
-
-    # system
-    # ../../modules/system/networking.nix
-    # ../../modules/system/nix-settings.nix
-    # ../../modules/system/audio.nix
-    # ../../modules/system/fonts.nix
-    # ../../modules/system/zsh.nix
-    # ../../modules/system/bt.nix
-    # ../../modules/system/nvidia.nix
-
-    # desktop
-    # ../../modules/desktop/hyprland.nix
-    # ../../modules/desktop/apps.nix
-    # ../../modules/desktop/gui-apps.nix
-    # ../../modules/desktop/hypr.nix
-    # ../../modules/desktop/steam.nix
-
-    # dev
-    # ../../modules/dev/code.nix
-    # ../../modules/dev/android.nix
+    ../../nix/modules/desktop/hyprland.nix
+    ../../nix/modules/desktop/wayland.nix
+    ../../nix/modules/desktop/steam.nix
+    ../../nix/modules/desktop/xdg-portals.nix
 
   ];
   # my.gui-apps.enable = true; 
