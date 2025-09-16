@@ -5,21 +5,22 @@
   # ===== EDITORS =====
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode-with-extensions.override {
-      vscodeExtensions = with pkgs.vscode-extensions; [
-        rust-lang.rust-analyzer
-        golang.go
-        ms-vscode.vscode-typescript-next
-      ];
-    };
+	#    package = pkgs.vscode-with-extensions.override {
+	#      vscodeExtensions = with pkgs.vscode-extensions; [
+	#        rust-lang.rust-analyzer
+	#        golang.go
+	# #        ms-vscode.vscode-typescript-next
+	# # pname
+	#      ];
+	#    };
     
     # VS Code user settings
-    userSettings = {
+    profiles.default.userSettings = {
       "editor.fontSize" = 14;
       "editor.fontFamily" = "JetBrains Mono, monospace";
       "workbench.colorTheme" = "Default Dark+";
-      "rust-analyzer.cargo.allFeatures" = true;
-      "go.formatTool" = "gofmt";
+      # "rust-analyzer.cargo.allFeatures" = true;
+      # "go.formatTool" = "gofmt";
     };
   };
 
@@ -29,15 +30,15 @@
     vimAlias = true;
     
     # Basic neovim config
-    extraConfig = ''
-      set number
-      set relativenumber 
-      set tabstop=2
-      set shiftwidth=2
-      set expandtab
-      set smartindent
-      set mouse=a
-    '';
+    # extraConfig = ''
+    #   set number
+    #   set relativenumber 
+    #   set tabstop=2
+    #   set shiftwidth=2
+    #   set expandtab
+    #   set smartindent
+    #   set mouse=a
+    # '';
     
     # Plugins bisa ditambah nanti
     plugins = with pkgs.vimPlugins; [ ];
@@ -45,6 +46,13 @@
 
   # ===== DEVELOPMENT LANGUAGES =====
   home.packages = with pkgs; [
+
+    # (vscode-with-extensions.override {
+    #   vscodeExtensions = with vscode-extensions; [
+    #     rust-lang.rust-analyzer
+    #     golang.go
+    #   ];
+    # })
     # Rust
     cargo 
     rustc 
@@ -62,13 +70,13 @@
     
     # Node.js/TypeScript
     nodejs_20
-    nodePackages.pnpm
-    nodePackages.npm
-    nodePackages.yarn
-    nodePackages.typescript
-    nodePackages.ts-node
-    nodePackages.prettier
-    nodePackages.eslint
+    # nodePackages.pnpm
+    # nodePackages.npm
+    # nodePackages.yarn
+    # nodePackages.typescript
+    # nodePackages.ts-node
+    # nodePackages.prettier
+    # nodePackages.eslint
     
     # Development tools
     direnv
@@ -84,12 +92,12 @@
   programs.git = {
     enable = true;
     userName = "liyan";
-    userEmail = "your-email@example.com";
+    userEmail = "liyannkova@example.com";
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = true;
       push.autoSetupRemote = true;
-      "core.editor" = "nvim";
+      # "core.editor" = "nvim";
     };
   };
 

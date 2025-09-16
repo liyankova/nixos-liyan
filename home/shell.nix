@@ -158,14 +158,14 @@ fi
   fi 
   '';
 
-  # ===== GIT CONFIG =====
-  programs.git = {
-    enable = true;
-    userName = "liyan";
-    userEmail = "your-email@example.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = true;
-    };
-  };
+  # # ===== GIT CONFIG =====
+  # programs.git = {
+  #   enable = true;
+  #   userName = "liyan";
+  #   userEmail = "liyannkova@example.com";
+  #   extraConfig = {
+  #     init.defaultBranch = "main";
+  #     pull.rebase = true;
+  #   };
+  # };
 }

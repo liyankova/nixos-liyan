@@ -6,8 +6,9 @@
     ./shell.nix
     ./dev.nix
     ./android.nix
-    # ./dev.nix
-    # ./apps.nix
+    ./apps.nix
+    ./wayland-tools.nix
+    ./systemd-services.nix
   ];
 
   # Basic home setup

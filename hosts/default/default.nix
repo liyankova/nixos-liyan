@@ -10,9 +10,15 @@
     ../../system/audio.nix
     ../../system/nvidia.nix
     ../../system/android.nix
+    
 
+    # desktop
+    ../../desktop/hyprland.nix   # ← Baru
+    ../../desktop/wayland.nix    # ← Baru
+    ../../desktop/steam.nix      # ← Baru
     # ../../system/shell.nix
 
+    # home-manager.nixosModules.home-manager
     # boot
     # ../../modules/boot/grub.nix
     # ../../modules/boot/sddm.nix
@@ -28,15 +34,15 @@
     # ../../modules/system/nvidia.nix
 
     # desktop
-    ../../modules/desktop/hyprland.nix
-    ../../modules/desktop/apps.nix
-    ../../modules/desktop/gui-apps.nix
-    ../../modules/desktop/hypr.nix
-    ../../modules/desktop/steam.nix
+    # ../../modules/desktop/hyprland.nix
+    # ../../modules/desktop/apps.nix
+    # ../../modules/desktop/gui-apps.nix
+    # ../../modules/desktop/hypr.nix
+    # ../../modules/desktop/steam.nix
 
     # dev
-    ../../modules/dev/code.nix
-    ../../modules/dev/android.nix
+    # ../../modules/dev/code.nix
+    # ../../modules/dev/android.nix
 
   ];
   my.gui-apps.enable = true; 
