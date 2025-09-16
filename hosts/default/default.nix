@@ -17,12 +17,14 @@
     ../../modules/system/fonts.nix
     ../../modules/system/zsh.nix
     ../../modules/system/bt.nix
+    ../../modules/system/nvidia.nix
 
     # desktop
     ../../modules/desktop/hyprland.nix
     ../../modules/desktop/apps.nix
     ../../modules/desktop/gui-apps.nix
     ../../modules/desktop/hypr.nix
+#    ../../modules/desktop/steam.nix
 
     # dev
     ../../modules/dev/code.nix

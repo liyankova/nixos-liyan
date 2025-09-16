@@ -14,7 +14,7 @@
  #   dotfiles.url = "github:liyankova/wallust-dotfiles";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, android-nixpkgs, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system}; 
@@ -23,6 +23,9 @@
     {
       nixosConfigurations.liyan = nixpkgs.lib.nixosSystem {
         inherit system;
+	specialArgs = {                    # ⬅ tambahkan
+           inherit android-nixpkgs;
+        };
         modules = [
 	  ./hosts/default
           # ./hosts/default/hardware.nix
