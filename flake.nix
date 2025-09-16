@@ -7,9 +7,9 @@
      url = "github:nix-community/home-manager";
      inputs.nixpkgs.follows = "nixpkgs";
    };
-     android-nixpkgs = {
-    url = "github:tadfisher/android-nixpkgs/stable";
-    inputs.nixpkgs.follows = "nixpkgs";
+   android-nixpkgs = {
+     url = "github:tadfisher/android-nixpkgs/stable";
+     inputs.nixpkgs.follows = "nixpkgs";
   };
  #   dotfiles.url = "github:liyankova/wallust-dotfiles";
   };
@@ -23,41 +23,33 @@
     {
       nixosConfigurations.liyan = nixpkgs.lib.nixosSystem {
         inherit system;
-	specialArgs = {                    # ⬅ tambahkan
+	specialArgs = {                 
            inherit android-nixpkgs;
         };
         modules = [
 	  ./hosts/default
-          # ./hosts/default/hardware.nix
-          # ./hosts/default/default.nix
-          # ./modules/boot/grub.nix
-          # ./modules/system/networking.nix
-          # ./modules/system/nix-settings.nix
-          # ./modules/system/audio.nix
-          # ./modules/system/fonts.nix
-          # ./modules/system/zsh.nix
-          # ./modules/desktop/apps.nix
-          # ./modules/desktop/hyprland.nix
-          # ./modules/boot/sddm.nix
-          # ./modules/boot/opt.nix
-          # ./modules/system/bt.nix
-	  # home-manager.nixosModules.home-manager
-	  # {
-	  #   home-manager.useGlobalPkgs = true;
-	  #   home-manager.useUserPackages = true;
-	  #   home-manager.users.liyan = import ./home/liyan/home.nix;
-	  # }
+	  home-manager.nixosModules.home-manager
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.liyan = import ./home/liyan/home.nix;
+          }
         ];
       };
 
-  #    homeConfigurations.liyan = home-manager.lib.homeManagerConfiguration {
- #       inherit pkgs;
- #       username = "liyan";
- #       homeDirectory = "/home/liyan";
+      homeConfigurations.liyan = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        username = "liyan";
+        homeDirectory = "/home/liyan";
+	stateVersion = "25.05";
+	modules = [
+	  ./home/liyan/home.nix
+	];
+      };
 #  modules = [
-#    ./home/liyan/home.nix          # ✅ path langsung
+#    ./home/liyan/home.nix         
 #  ];
-#  extraSpecialArgs = { inherit dotfiles; };  # passing dotfiles
+#  extraSpecialArgs = { inherit dotfiles; }; 
 #      };
     };
 }

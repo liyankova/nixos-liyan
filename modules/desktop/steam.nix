@@ -11,7 +11,7 @@
 
   # Additional packages for gaming
   environment.systemPackages = with pkgs; [
-    gamemode
+#    gamemode
     mangohud
     goverlay
     wine
@@ -19,7 +19,7 @@
   ];
 
   # Enable gamemode for performance optimization
-  services.gamemode.enable = true;
+#  services.gamemode.enable = true;
 
   # Add user to necessary groups
   users.users.liyan.extraGroups = [ "games" "video" ];

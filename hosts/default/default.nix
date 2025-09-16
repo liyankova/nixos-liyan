@@ -4,11 +4,12 @@
   imports = [
     ./hardware.nix
     ./hardware-configuration.nix
-
+    # system
+    ../../system/boot.nix
     # boot
-    ../../modules/boot/grub.nix
-    ../../modules/boot/sddm.nix
-    ../../modules/boot/opt.nix
+    # ../../modules/boot/grub.nix
+    # ../../modules/boot/sddm.nix
+    # ../../modules/boot/opt.nix
 
     # system
     ../../modules/system/networking.nix
