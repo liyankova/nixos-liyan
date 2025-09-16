@@ -32,7 +32,7 @@
 	  {
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
-	    home-manager.users.liyan = import ./home/liyan/home.nix;
+	    home-manager.users.liyan = import ./home;
           }
         ];
       };
@@ -43,7 +43,7 @@
         homeDirectory = "/home/liyan";
 	stateVersion = "25.05";
 	modules = [
-	  ./home/liyan/home.nix
+	  ./home/default.nix
 	];
       };
 #  modules = [

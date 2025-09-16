@@ -4,6 +4,8 @@
 {
   imports = [
     ./shell.nix
+    ./dev.nix
+    ./android.nix
     # ./dev.nix
     # ./apps.nix
   ];

@@ -6,19 +6,26 @@
     ./hardware-configuration.nix
     # system
     ../../system/boot.nix
+    ../../system/core.nix
+    ../../system/audio.nix
+    ../../system/nvidia.nix
+    ../../system/android.nix
+
+    # ../../system/shell.nix
+
     # boot
     # ../../modules/boot/grub.nix
     # ../../modules/boot/sddm.nix
     # ../../modules/boot/opt.nix
 
     # system
-    ../../modules/system/networking.nix
-    ../../modules/system/nix-settings.nix
-    ../../modules/system/audio.nix
-    ../../modules/system/fonts.nix
-    ../../modules/system/zsh.nix
-    ../../modules/system/bt.nix
-    ../../modules/system/nvidia.nix
+    # ../../modules/system/networking.nix
+    # ../../modules/system/nix-settings.nix
+    # ../../modules/system/audio.nix
+    # ../../modules/system/fonts.nix
+    # ../../modules/system/zsh.nix
+    # ../../modules/system/bt.nix
+    # ../../modules/system/nvidia.nix
 
     # desktop
     ../../modules/desktop/hyprland.nix
@@ -44,10 +51,7 @@
   };
 
   # Packages dasar
-  environment.systemPackages = with pkgs; [
-    vim git htop wget curl unzip zsh neovim tree bash
 
-  ];
 
   # Swap (sesuaikan UUID kamu)
   swapDevices = [{

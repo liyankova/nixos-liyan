@@ -18,7 +18,7 @@
   environment.systemPackages = with pkgs; [
     # Core utilities
     curl wget htop git vim neovim tree unzip zip
-    jq duf findutils
+    jq duf findutils tree bash zsh
     
     # User groups
     pciutils lsof

@@ -14,7 +14,7 @@
     };
     
     syntaxHighlighting.enable = true;
-    autosuggestions.enable = true;
+    # autosuggestions.enable = true;
   };
 
   programs.zoxide.enable = true;
@@ -23,7 +23,7 @@
   home.packages = with pkgs; [
     fzf
     oh-my-posh
-    exa
+    # exa
     bat
 
     zoxide
