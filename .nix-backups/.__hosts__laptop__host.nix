@@ -20,13 +20,10 @@
 
     # system
     ../../nix/modules/system/boot.nix
+    ../../nix/modules/core/core.nix
     ../../nix/modules/system/audio.nix
     ../../nix/modules/system/nvidia.nix
     ../../nix/modules/android/system.nix
-    # core
-    ../../nix/modules/core/core.nix
-    # shell
-    ../../nix/modules/shell/system.nix
 
     # desktop
     ../../nix/modules/desktop/hyprland.nix
