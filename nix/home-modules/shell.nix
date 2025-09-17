@@ -11,11 +11,11 @@
     # HAPUS ohMyZsh dulu - nanti tambahin kembali
      oh-my-zsh = {
         enable = true;
-	plugins = [
-	  # "thefuck"
-	  # "zsh-autocomplete"
-	  # "zsh-syntax-highlighting"
-	];
+	# plugins = [
+	#   # "thefuck"
+	#   # "zsh-autocomplete"
+	#   # "zsh-syntax-highlighting"
+	# ];
     };
     
     # HAPUS yang error - nanti setup manual
@@ -34,6 +34,10 @@
   home.packages = with pkgs; [
     oh-my-posh
     bat
+    eza
+    yazi
+    zoxide
+    fzf
   ];
 
   # ===== SIMPLE ZSH CONFIG =====

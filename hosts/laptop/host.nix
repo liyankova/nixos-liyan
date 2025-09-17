@@ -4,27 +4,15 @@
   imports = [
  #   ./hardware.nix
     ./hardware-configuration.nix
-    # # system
-    # ../../system/boot.nix
-    # ../../nix/modules/core/core.nix
-    # ../../system/audio.nix
-    # ../../system/nvidia.nix
-    # ../../nix/modules/android/system.nix
-    #
-    #
-    # # desktop
-    # ../../desktop/hyprland.nix   # ← Baru
-    # ../../desktop/wayland.nix    # ← Baru
-    # ../../desktop/steam.nix      # ← Baru
-    # # ../../nix/modules/shell/system.nix
-
     # system
     ../../nix/modules/system/boot.nix
     ../../nix/modules/system/audio.nix
     ../../nix/modules/system/nvidia.nix
     ../../nix/modules/android/system.nix
+
     # core
     ../../nix/modules/core/core.nix
+
     # shell
     ../../nix/modules/shell/system.nix
 
@@ -46,20 +34,13 @@
     shell = pkgs.zsh;
   };
 
-  # Packages dasar
+
 
 
   # Swap (sesuaikan UUID kamu)
   swapDevices = [{
     device = "/dev/disk/by-uuid/3efb9b12-ba2a-47e0-b11e-bef00b43577e";
   }];
-
-  # Disable X dulu (nanti baru nyalain Hyprland)
-  #services.xserver.enable = false;
-
-  # Audio
-  # sound.enable = true;
-  #services.pulseaudio.enable = true;
   # Sudo no-password (opsional)
   security.sudo.wheelNeedsPassword = false;
   system.stateVersion = "25.05";

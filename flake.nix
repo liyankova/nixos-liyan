@@ -22,8 +22,6 @@
         inherit system overlays; 
         config.allowUnfree = true;
       };
-      # pkgs = nixpkgs.legacyPackages.${system}; 
-#      dotfiles = /home/liyan/.dotfiles;
     in
     {
       nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
@@ -40,30 +38,14 @@
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.liyan = import ./home/liyan/home.nix;
-	         }
+	  }
         ];
-      
-
-	#      homeConfigurations.liyan = home-manager.lib.homeManagerConfiguration {
-	#        inherit pkgs;
-	#        username = "liyan";
-	#        homeDirectory = "/home/liyan";
-	# stateVersion = "25.05";
-	# modules = [
-	#   ./home/home.nix
-	# ];
-	#      };
-#  modules = [
-#    ./home/liyan/home.nix         
-#  ];
-#  extraSpecialArgs = { inherit dotfiles; }; 
-#      };
-    };
+      };
           # ==============================
       # 2. Home Manager Configurations
       # ==============================
       homeConfigurations = {
-        # Jalankan di NixOS atau Debian/Fedora/Arch (non-NixOS)
+
         "liyan@laptop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
@@ -71,13 +53,12 @@
           ];
         };
 
-        # contoh lain kalau kamu install di Debian
         "liyan@debian" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             ./home/liyan/home.nix
           ];
         };
-      };
-      };
+     };
+  };
 }
