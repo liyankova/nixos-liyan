@@ -53,35 +53,23 @@
     #     golang.go
     #   ];
     # })
-    # Rust
-    cargo 
-    rustc 
-    rustfmt 
-    clippy 
-    rust-analyzer
-    pkg-config
-    openssl
-    
+    # Rust toolchain
+    cargo rustc rustfmt clippy rust-analyzer
+
     # Go
-    go
-    gopls
-    gotools
-    delve
-    
-    # Node.js/TypeScript
+    go gopls gotools delve
+
+    # Node.js (v20 attribute)
     nodejs_20
-    # nodePackages.pnpm
-    # nodePackages.npm
-    # nodePackages.yarn
-    # nodePackages.typescript
-    # nodePackages.ts-node
-    # nodePackages.prettier
-    # nodePackages.eslint
-    
-    # Development tools
-    direnv
-    git
-  ];
+    # If you want pnpm/npm helpers: use nodePackages.pnpm or pnpm via npm wrapper in your devshells.
+
+    # Build helpers / common libs
+    pkg-config openssl
+
+
+    # Android / mobile dev (keep in home so it works on non-NixOS)
+    flutter android-studio jdk17
+    ];
 
   # ===== DEVELOPMENT ENVIRONMENT =====
   programs.direnv = {
@@ -89,17 +77,17 @@
     nix-direnv.enable = true;
   };
 
-  programs.git = {
-    enable = true;
-    userName = "liyan";
-    userEmail = "liyannkova@example.com";
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = true;
-      push.autoSetupRemote = true;
-      # "core.editor" = "nvim";
-    };
-  };
+  # programs.git = {
+  #   enable = true;
+  #   userName = "liyan";
+  #   userEmail = "liyannkova@example.com";
+  #   extraConfig = {
+  #     init.defaultBranch = "main";
+  #     pull.rebase = true;
+  #     push.autoSetupRemote = true;
+  #     # "core.editor" = "nvim";
+  #   };
+  # };
 
   # ===== ENVIRONMENT VARIABLES =====
   home.sessionVariables = {

@@ -3,25 +3,25 @@
 
 {
   # ===== ZSH CONFIGURATION =====
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    
-    # Oh-my-zsh with minimal plugins
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "sudo" ];
-    };
-    
-    syntaxHighlighting.enable = true;
-    # autosuggestions.enable = true;
-  };
-
-  programs.zoxide.enable = true;
-  environment.systemPackages = with pkgs; [
-    fzf oh-my-posh eza bat zoxide git vim neovim
- 
-  ];
+  # programs.zsh = {
+  #   enable = true;
+  #   enableCompletion = true;
+  #
+  #   # Oh-my-zsh with minimal plugins
+  #   ohMyZsh = {
+  #     enable = true;
+  #     plugins = [ "git" "sudo" ];
+  #   };
+  #
+  #   syntaxHighlighting.enable = true;
+  #   # autosuggestions.enable = true;
+  # };
+  #
+  # programs.zoxide.enable = true;
+  # environment.systemPackages = with pkgs; [
+  #   fzf oh-my-posh eza bat zoxide vim neovim
+  #
+  # ];
   # ===== SHELL PACKAGES =====
 #  home.packages = with pkgs; [
 #    fzf
@@ -61,7 +61,7 @@
   # programs.git = {
   #   enable = true;
   #   userName = "liyan";
-  #   userEmail = "liyannkova@example.com";
+  #   userEmail = "liyannkova@gmail.com";
   #   extraConfig = {
   #     init.defaultBranch = "main";
   #     pull.rebase = true;

@@ -18,11 +18,5 @@
   
   programs.home-manager.enable = true;
 
-  # Global home packages
-  home.packages = with pkgs; [
-    # Your existing tools
-    fastfetch
-    mpv
-    yt-dlp
-  ];
+
 }

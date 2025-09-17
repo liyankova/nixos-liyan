@@ -34,8 +34,6 @@
   environment.systemPackages = with pkgs; [
     hyprland
     waybar
-    kitty
-    foot
     dmenu-wayland
   ];
 }

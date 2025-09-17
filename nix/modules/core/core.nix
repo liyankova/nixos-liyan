@@ -17,11 +17,10 @@
   # ===== BASE SYSTEM PACKAGES =====
   environment.systemPackages = with pkgs; [
     # Core utilities
-    curl wget htop git vim neovim tree unzip zip
-    jq duf findutils tree bash zsh bat eza zoxide
-    
-    # User groups
-    pciutils lsof
+    # curl wget htop git vim neovim tree unzip zip
+    # jq duf findutils tree bash zsh bat eza zoxide
+    curl wget git htop vim neovim tree unzip zip jq duf findutils bash zsh lsof pciutils
+    home-manager
   ];
 
   # ===== FONTS =====

@@ -32,11 +32,8 @@
   programs.kitty.shellIntegration.enableZshIntegration = true;
   # ===== BASIC SHELL PACKAGES =====
   home.packages = with pkgs; [
-    fzf
     oh-my-posh
-#    exa
     bat
-    zoxide
   ];
 
   # ===== SIMPLE ZSH CONFIG =====
@@ -46,7 +43,7 @@
 # ===================================================================
 # Set variabel dasar dan batas rekursi di paling awal.
 export FUNCNEST=1000
-export ZSH="$HOME/.oh-my-zsh"
+#export ZSH="$HOME/.oh-my-zsh"
 export VOLTA_HOME="$HOME/.volta"
 export ANDROID_HOME="$HOME/Android/Sdk"
 export PNPM_HOME="/home/liyan/.local/share/pnpm"
@@ -158,14 +155,14 @@ fi
   fi 
   '';
 
-  # # ===== GIT CONFIG =====
-  # programs.git = {
-  #   enable = true;
-  #   userName = "liyan";
-  #   userEmail = "liyannkova@example.com";
-  #   extraConfig = {
-  #     init.defaultBranch = "main";
-  #     pull.rebase = true;
-  #   };
-  # };
+  # ===== GIT CONFIG =====
+  programs.git = {
+    enable = true;
+    userName = "liyan";
+    userEmail = "liyannkova@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+      pull.rebase = true;
+    };
+  };
 }

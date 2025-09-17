@@ -35,12 +35,12 @@
         modules = [
 	  ./hosts/laptop/host.nix
 	  # ./nix/modules/core/core.nix
-	  # home-manager.nixosModules.home-manager
-	  # {
-	  #   home-manager.useGlobalPkgs = true;
-	  #   home-manager.useUserPackages = true;
-	  #   home-manager.users.liyan = import ./home/liyan/home.nix;
-	  #        }
+	  home-manager.nixosModules.home-manager
+	  {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.liyan = import ./home/liyan/home.nix;
+	         }
         ];
       
 

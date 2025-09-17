@@ -6,13 +6,6 @@ let
   # Tapi kita bisa setup environment variables dan tools
 in
 {
-  # ===== ANDROID DEVELOPMENT TOOLS =====
-  home.packages = with pkgs; [
-    flutter
-    android-studio
-    jdk17
-  ];
-
   # ===== ANDROID ENVIRONMENT =====
   home.sessionVariables = {
     # These will be overridden by system config on NixOS
