@@ -1,5 +1,4 @@
-# home/home.nix
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, isNixOS ? false, vars, ... }:
 
 {
   imports = [
@@ -13,9 +12,9 @@
     ../../nix/home-modules/systemd-services.nix
   ];
 
-  home.username = config.username;
-  home.homeDirectory = config.homeDirectory;
-  home.stateVersion = config.stateVersion;
+  home.username = vars.username;
+  home.homeDirectory = vars.homeDirectory;
+  home.stateVersion = vars.stateVersion;
   
   programs.home-manager.enable = true;
 

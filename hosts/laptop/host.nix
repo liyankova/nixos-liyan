@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, vars, ... }:
 {
   imports = [
     ./vars.nix
@@ -12,25 +12,25 @@
     ../../nix/modules/nixos/desktop/wayland.nix
     ../../nix/modules/nixos/desktop/steam.nix
     ../../nix/modules/nixos/networking/networking.nix
+    ../../nix/modules/nixos/system/nvidia.nix
   # ] ++ lib.optionals config.enableNvidia [
   #   ../../nix/modules/nixos/system/nvidia.nix
   ];
-
-  nixpkgs.config.allowUnsupportedSystem = true;
+nixpkgs.config.allowUnsupportedSystem = true;
   programs.zsh.enable = true;
 
-  users.users.liyan = {
+  users.users.${vars.username or "liyan"} = {
     isNormalUser = true;
     description = "Liyan";
     extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
     shell = pkgs.zsh;
   };
 
-  swapDevices = lib.optionals (config.swapDevice != "") [{
-    device = config.swapDevice;
+  swapDevices = lib.optionals (vars.swapDevice != "") [{
+    device = vars.swapDevice;
   }];
 
-  security.sudo.wheelNeedsPassword = lib.mkIf config.sudoNoPassword false;
+  security.sudo.wheelNeedsPassword = lib.mkIf vars.sudoNoPassword false;
 
   system.stateVersion = "25.05";
 }

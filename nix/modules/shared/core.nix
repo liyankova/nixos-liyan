@@ -1,5 +1,4 @@
-# system/core.nix
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, isNixOS ? true, ... }:
 
 {
   # ===== NIX SETTINGS (NixOS specific) =====
@@ -31,26 +30,26 @@
     nerd-fonts.fira-code
     nerd-fonts.fantasque-sans-mono
   ];
-
-  # ===== SECURITY & PERMISSIONS =====
-  users.users.liyan.extraGroups = [ "wheel" ];
+  #
+  # # ===== SECURITY & PERMISSIONS =====
+  # users.users.liyan.extraGroups = [ "wheel" ];
   
   systemd.tmpfiles.rules = [
     "d  /etc/nixos          0775  root  wheel  -  -"
     "d  /etc/nixos/.git      0775  root  wheel  -  -"
   ];
-
-  # ===== BLUETOOTH =====
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-  services.blueman.enable = true;
-
-  # ===== NETWORKING =====
-  networking = {
-    hostName = "nixos";
-    networkmanager.enable = true;
-  };
-  time.timeZone = "Asia/Jakarta";
+  #
+  # # ===== BLUETOOTH =====
+  # hardware.bluetooth = {
+  #   enable = true;
+  #   powerOnBoot = true;
+  # };
+  # services.blueman.enable = true;
+  #
+  # # ===== NETWORKING =====
+  # networking = {
+  #   hostName = "nixos";
+  #   networkmanager.enable = true;
+  # };
+  # time.timeZone = "Asia/Jakarta";
 }

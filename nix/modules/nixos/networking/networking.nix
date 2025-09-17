@@ -1,10 +1,10 @@
-{ config, pkgs, lib, isNixOS ? true, ... }:
+{ config, pkgs, lib, isNixOS ? true, vars, ... }:
 {
   networking = lib.mkIf isNixOS {
-    hostName = config.hostName or "nixos";
+    hostName = vars.hostName or "nixos";
     networkmanager.enable = true;
   };
-  time.timeZone = config.timeZone or "Asia/Jakarta";
+  time.timeZone = vars.timeZone or "Asia/Jakarta";
   hardware.bluetooth = lib.mkIf isNixOS {
     enable = true;
     powerOnBoot = true;
