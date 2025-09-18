@@ -1,8 +1,6 @@
 { config, pkgs, lib, isNixOS ? false, vars, ... }:
-
 {
   imports = [
-    ./vars.nix
     ../../nix/home-modules/shell.nix
     ../../nix/home-modules/dev.nix
     ../../nix/home-modules/android-home.nix
@@ -15,8 +13,6 @@
   home.username = vars.username;
   home.homeDirectory = vars.homeDirectory;
   home.stateVersion = vars.stateVersion;
-  
+  home.enableNixpkgsReleaseCheck = false;
   programs.home-manager.enable = true;
-
-
 }

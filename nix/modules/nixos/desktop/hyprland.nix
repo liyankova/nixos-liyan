@@ -35,5 +35,6 @@
     hyprland
     waybar
     dmenu-wayland
+    mesa-demos
   ];
 }
