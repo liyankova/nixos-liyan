@@ -66,7 +66,8 @@
     }];
 
     security.sudo.wheelNeedsPassword = lib.mkIf vars.sudoNoPassword false;
-
+    boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_6;  # Force LTS 6.6
+    boot.initrd.preDeviceCommands = "echo 'blacklist nouveau' > /etc/modprobe.d/blacklist-nouveau.conf";  # Early blacklist
     # Set config values from vars
     networking.hostName = vars.hostName or "laptop";
     time.timeZone = vars.timeZone or "Asia/Jakarta";
@@ -75,52 +76,3 @@
     system.stateVersion = vars.stateVersion or "25.05";
   };
 }
-
-# { config, pkgs, lib, ... }:
-#
-# {
-#   imports = [
-#  #   ./hardware.nix
-#     ./hardware-configuration.nix
-#     # system
-#     ../../nix/modules/system/boot.nix
-#     ../../nix/modules/system/audio.nix
-#     ../../nix/modules/system/nvidia.nix
-#     ../../nix/modules/android/system.nix
-#
-#     # core
-#     ../../nix/modules/core/core.nix
-#
-#     # shell
-#     ../../nix/modules/shell/system.nix
-#
-#     # desktop
-#     ../../nix/modules/desktop/hyprland.nix
-#     ../../nix/modules/desktop/wayland.nix
-#     ../../nix/modules/desktop/steam.nix
-#     # ../../nix/modules/desktop/xdg-portals.nix
-#
-#   ];
-#   # my.gui-apps.enable = true; 
-#   nixpkgs.config.allowUnsupportedSystem = true; 
-#   programs.zsh.enable = true;
-#   # User
-#   users.users.liyan = {
-#     isNormalUser = true;
-#     description = "Liyan";
-#     extraGroups = [ "networkmanager" "wheel" "video" "audio" "input" ];
-#     shell = pkgs.zsh;
-#   };
-#
-#
-#
-#
-#   # Swap (sesuaikan UUID kamu)
-#   swapDevices = [{
-#     device = "/dev/disk/by-uuid/3efb9b12-ba2a-47e0-b11e-bef00b43577e";
-#   }];
-#   # Sudo no-password (opsional)
-#   security.sudo.wheelNeedsPassword = false;
-#   system.stateVersion = "25.05";
-# }
-#

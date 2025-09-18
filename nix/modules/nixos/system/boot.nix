@@ -17,7 +17,7 @@
 
   # ===== KERNEL & PERFORMANCE =====
   # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_6;
+  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages_6_6;
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [
     "nowatchdog"

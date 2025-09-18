@@ -19,7 +19,7 @@
     # curl wget htop git vim neovim tree unzip zip
     # jq duf findutils tree bash zsh bat eza zoxide
     curl wget git htop vim neovim tree unzip zip jq duf findutils bash zsh lsof pciutils
-    home-manager
+    home-manager mesa-demos
   ];
 
   # ===== FONTS =====
